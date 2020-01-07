@@ -1,0 +1,51 @@
+{% extends "accounts/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+        <div class="col-sm-5 mx-auto text-center">
+            <h1 class='text-white'>Sign in Form</h1>
+            <div class="form-login"></br>
+                <h4>Secure Login using </h4>
+                <div class="col-xs-offset-1 col-md-offset-0">
+                  <div class="col-xs-2 col-sm-2">
+                    <a href="{% url 'social:begin' 'twitter' %}" class="btn btn-lg btn-block kpx_btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+                        <i class="fa fa-twitter fa-2x"></i>
+                        <span class="hidden-xs"></span>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-lg btn-block kpx_btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+                        <i class="fa fa-facebook fa-2x"></i>
+                        <span class="hidden-xs"></span>
+                    </a>
+                </div>
+                    </div>
+                </br></br>
+
+
+
+                <h4>OR</h4>
+                </br>
+
+                    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign in</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need An Account? <a class="ml-2" href="{% url 'user_registration' %}">Sign Up Now</a>
+            </small>
+        </div>
+    </div>
+
+
+
+            </div>
+        </div></div>
+{% endblock content %}

@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+    <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" type="text/css" href="{% static 'gameboard/main_.css' %}">
+</head>
+
+<body>
+
+
+{% block content %}{% endblock %}
+
+
+
+<div class="nav-side-menu">
+    <div class="brand">Game Board</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+        <div class="menu-list">
+
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                  <a href="{% url 'home-page' %}">
+                  <i class="fas fa-tachometer-alt fa-lg"></i> Home page
+                  </a>
+                </li>
+             <li data-toggle="collapse" data-target="#service" class="collapsed">
+                 <a href="#"><i class="fab fa-fort-awesome-alt fa-lg"></i> Services <span class="arrow"></span></a>
+             </li>
+                <ul class="sub-menu collapse" id="service">
+                    <li><a href="{% url 'home-page' %}"> Play games</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a  href="{% url 'game-create' %}"> Add games</a> </li>
+
+                    {% endif %}
+                </ul>
+
+                <li>
+                    <a href="{% url 'user_profile' %}">
+                        <i class="fas fa-user-tie fa-lg"></i> Profile
+                    </a>
+                </li>
+
+
+                {% if user.is_authenticated %}
+
+                    <li>
+                      <a href="{% url 'sign_out' %}">
+                      <i class="fa fa-undo"></i>Sign out
+                      </a>
+                    </li>
+
+              {% else %}
+                    <li>
+                      <a href="{% url 'sign_in' %}">
+                      <i class="fa fa-angle-right" ></i>Sign in
+                      </a>
+                    </li>
+
+
+              {% endif %}
+
+
+
+            </ul>
+     </div>
+</div>
+</body>
+</html>
