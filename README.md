@@ -1,7 +1,7 @@
 # dapp
 Django App
 
-Deployed to heroku https://gamingplatform.herokuapp.com/ give it a try !
+Deployed to heroku  https://gamingplatform.herokuapp.com/sign_in/  give it a try !
 
 
 ![Screenshot 2020-01-07 at 4 29 25](https://user-images.githubusercontent.com/32483438/72233481-4d071180-35d0-11ea-9108-73e4ebc307e8.png)
